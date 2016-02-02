@@ -11,6 +11,7 @@
         // list everything
         var hc = this;
         hc.addItem = addItem;
+        hc.addList = addList;
         hc.lists = homeService.lists;
         hc.items = homeService.items;
         hc.currentList = Number(homeService.currentList);
@@ -19,6 +20,15 @@
         hc.removeCompleted = homeService.removeCompleted;
 
         // public functions
+        function addList() {
+            //only add list if text isn't blank
+            if (hc.newListText) {
+                homeService.addList(hc.newListText);
+                hc.newListText = ''
+            }
+
+
+        }
         function addItem() {
             // only add item if text isn't blank
             if (hc.newItemText && hc.newItemText.trim() !== '') {

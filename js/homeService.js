@@ -21,11 +21,18 @@
                 completed: false
             }
         ];
+        hs.addList = addList;
 
         hs.addItem = addItem;                   // adds the given item to current list
         hs.removeCompleted = removeCompleted;   // removes all completed items from all lists
 
         // public functions
+        function addList(title) {
+            hs.lists.push(
+                title
+            );
+        }
+
         function addItem(title) {
             hs.items.push(
                 {

@@ -4,7 +4,7 @@
     <button class="btn" ng-repeat="list in hc.lists" ng-bind="list"
         ng-click="hc.setCurrentList($index)"
         ng-class="{ 'btn-primary': (hc.currentList == $index) }"></button>
-    <input type="text" ng-model="newListText" size="10">
+    <input type="text" ng-model="hc.newListText" size="10">
     <td-addlistbutton></td-addlistbutton><br />
     <br />
 
