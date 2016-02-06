@@ -12,11 +12,11 @@
         var nextItemNum = 1;
         var hs = this;
         hs.currentList = new Number(0);
-        hs.lists = ['Today', 'Later'];
+        hs.lists = ['Today', 'Tomorrow'];
         hs.items = [
             {
                 itemNum: Number(0),
-                title: 'Git \'r dun',
+                title: 'Make a to-do list',
                 listNum: 0,
                 completed: false
             }

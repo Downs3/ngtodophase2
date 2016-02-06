@@ -1,23 +1,26 @@
-<div class="alert alert-success auto-width">
+<div class="alert alert-info auto-width">
 
     <!-- lists button bar -->
+    <h2>List Options</h2>
     <button class="btn" ng-repeat="list in hc.lists" ng-bind="list"
         ng-click="hc.setCurrentList($index)"
         ng-class="{ 'btn-primary': (hc.currentList == $index) }"></button>
     <input type="text" ng-model="hc.newListText" size="10">
     <td-addlistbutton></td-addlistbutton><br />
-    <br />
+<br />
+<h3>Things to do:</h3>
 
-    <table class="table table-striped table-condensed auto-width">
-        <tr ng-repeat="item in filteredItems = (hc.items | filter:{listNum: hc.currentList}) track by item.itemNum"
-            td-item item="item" index="$index"></tr>
-        <!-- if no items in list, show message -->
-        <tr td-nonefound ng-hide="filteredItems.length"></tr>
-        <!--<tr ng-hide="filteredItems.length"><td><i>No items in this list</i></td></tr>-->
-    </table>
 
-    <input type="text" ng-model="hc.newItemText" ng-keyup="hc.keyPress($event)">
-    <button class="btn btn-xs btn-success" ng-click="hc.addItem()">add item</button>
-    <button class="btn btn-danger btn-xs right" ng-click="hc.removeCompleted()">Remove Completed</button>
+<table class="table table-striped table-condensed auto-width">
+    <tr ng-repeat="item in filteredItems = (hc.items | filter:{listNum: hc.currentList}) track by item.itemNum"
+        td-item item="item" index="$index"></tr>
+    <!-- if no items in list, show message -->
+    <tr td-nonefound ng-hide="filteredItems.length"></tr>
+    <!--<tr ng-hide="filteredItems.length"><td><i>No items in this list</i></td></tr>-->
+</table>
+
+<input type="text" ng-model="hc.newItemText" ng-keyup="hc.keyPress($event)">
+<button class="btn btn-xs btn-success" ng-click="hc.addItem()">add item</button>
+<button class="btn btn-danger btn-xs right" ng-click="hc.removeCompleted()">Remove Completed</button>
 
 </div>
