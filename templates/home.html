@@ -2,7 +2,7 @@
 
     <!-- lists button bar -->
     <h2>List Options</h2>
-    <button class="btn" ng-repeat="list in hc.lists" ng-bind="list"
+    <button class="btn" ng-repeat="list in hc.lists" ng-bind="list | capitalize:true"
         ng-click="hc.setCurrentList($index)"
         ng-class="{ 'btn-primary': (hc.currentList == $index) }"></button>
     <input type="text" ng-model="hc.newListText" size="10">
@@ -18,9 +18,11 @@
     <tr td-nonefound ng-hide="filteredItems.length"></tr>
     <!--<tr ng-hide="filteredItems.length"><td><i>No items in this list</i></td></tr>-->
 </table>
-
+<h4>Add work and fun!</h4>
 <input type="text" ng-model="hc.newItemText" ng-keyup="hc.keyPress($event)">
 <button class="btn btn-xs btn-success" ng-click="hc.addItem()">add item</button>
 <button class="btn btn-danger btn-xs right" ng-click="hc.removeCompleted()">Remove Completed</button>
-
+</div>
+<div ng-init="myVar = 'images.jpeg'">
+    <img ng-src="{{myVar}}">
 </div>

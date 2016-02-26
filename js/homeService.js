@@ -1,19 +1,29 @@
 (function(){
     'use strict';
 
-    angular.module('homeService', [])
+    angular.module('homeService', ["ngStorage"])
         .service('homeService', homeService);
 
-    homeService.$inject = [];
+    homeService.$inject = ['$localStorage'];
 
-    function homeService() {
+    function homeService($localStorage) {
 
         // list everything
         var nextItemNum = 1;
         var hs = this;
         hs.currentList = new Number(0);
-        hs.lists = ['Today', 'Tomorrow'];
-        hs.items = [
+       // hs.lists = ['Today', 'Tomorrow'];
+        hs.storage = $localStorage.$default({
+            lists: ['Today','Tomorrow'],
+            items:[{
+                itemNum:0,
+                title: 'Make a to-do list',
+                listNum: 0,
+                completed: false
+            }]});
+        //hs.lists = $localStorage.lists;
+        hs.items = $localStorage.items;
+        /*hs.items = [
             {
                 itemNum: Number(0),
                 title: 'Make a to-do list',
@@ -21,6 +31,7 @@
                 completed: false
             }
         ];
+        */
         hs.addList = addList;
 
         hs.addItem = addItem;                   // adds the given item to current list
@@ -31,6 +42,9 @@
             hs.lists.push(
                 title
             );
+            console.log(hs.lists);
+            $localStorage.lists = hs.lists;
+            console.log($localStorage.lists);
         }
 
         function addItem(title) {
@@ -42,6 +56,7 @@
                     completed: false
                 }
             );
+            $localStorage.items = hs.items;
         }
 
         function removeCompleted() {

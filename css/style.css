@@ -6,3 +6,7 @@ input[type=text], button { border: black 1px solid; }
 .auto-width { width: auto !important; }
 .completed-item { text-decoration: line-through; }
 label { font-weight: normal; }
+img {
+    height: 400px;
+    width: 1350px;
+}

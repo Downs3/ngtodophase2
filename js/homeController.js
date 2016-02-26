@@ -12,8 +12,8 @@
         var hc = this;
         hc.addItem = addItem;
         hc.addList = addList;
-        hc.lists = homeService.lists;
-        hc.items = homeService.items;
+        hc.lists = homeService.storage.lists;
+        hc.items = homeService.storage.items;
         hc.currentList = Number(homeService.currentList);
         hc.setCurrentList = setCurrentList;
         hc.keyPress = keyPress;

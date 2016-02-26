@@ -6,7 +6,10 @@
         "navController",
         "homeController",
         "homeService",
-        "homeDirectives"
+        "homeDirectives",
+        "myFilter",
+        "ngStorage"
+
     ])
 
     .config(["$stateProvider", "$urlRouterProvider",
